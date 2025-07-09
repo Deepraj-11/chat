@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat App - Home</title>
+    <link rel="stylesheet" href="css/main.css">
+    <script src="https://cdn.jsdelivr.net/npm/peerjs@1.4.7/dist/peerjs.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+    <div class="canvas-bg"></div>
+    <div class="container">
+        <header>
+            <h1>Welcome to ChatApp</h1>
+            <p>Choose your chat mode below</p>
+        </header>
+        
+        <div class="chat-options">
+            <div class="option-card" id="group-chat">
+                <h2>Group Chat</h2>
+                <p>Join a room with up to 50 participants</p>
+                <button class="btn-primary">Start Group Chat</button>
+            </div>
+            
+            <div class="option-card" id="p2p-chat">
+                <h2>Peer-to-Peer</h2>
+                <p>Private chat with one other person</p>
+                <button class="btn-primary">Start P2P Chat</button>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="invite-modal" class="modal">
+  <div class="modal-content">
+    <h3>Invite Friends</h3>
+    <input type="text" id="invite-link" readonly>
+    <div id="qrcode"></div>
+    <button onclick="navigator.clipboard.writeText(document.getElementById('invite-link').value)">
+      Copy Link
+    </button>
+  </div>
+</div>
+
+<button id="invite-btn" class="floating-btn">
+  <i class="fas fa-user-plus"></i>
+</button>
+    <script src="js/canvas-bg.js"></script>
+    <script>
+        document.getElementById('group-chat').addEventListener('click', () => {
+            window.location.href = 'group.html';
+        });
+        
+        document.getElementById('p2p-chat').addEventListener('click', () => {
+            window.location.href = 'p2p.html';
+        });
+    </script>
+
+</body>
+</html>
